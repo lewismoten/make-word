@@ -1,3 +1,8 @@
+(() => {
+
+  'use strict';
+
+  module.exports = RandomPassword;
 //**************************************
 //HTML for :Random Pronouncable Password
 //**************************************
@@ -75,3 +80,5 @@ function RandomPassword(Min, Max)
 		password = password.substring(0, Max)
 	return(password)
 }
+
+})();
