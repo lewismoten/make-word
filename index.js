@@ -26,8 +26,7 @@
       // 10% Double Consonants
       if (password !== '' && addConsonant && random < 10) {
 
-        index = Math.round(Math.random() * (doubleConsonants.length - 1));
-        letter = doubleConsonants.substring(index, index + 1);
+        letter = getRandom(doubleConsonants);
         password += letter + letter;
         addConsonant = false;
 
@@ -35,17 +34,13 @@
 
         // 80% Consonants
 
-        index = Math.round(Math.random() * (singleConsonants.length - 1));
-        letter = singleConsonants.substring(index, index + 1);
-        password += letter;
+        password += getRandom(singleConsonants);
         addConsonant = false;
 
       } else {
 
         // 10% vowels
-        index = Math.round(Math.random() * (vowels.length - 1));
-        letter = vowels.substring(index, index + 1);
-        password += letter;
+        password += getRandom(vowels);
         addConsonant = true;
 
       }
@@ -61,6 +56,11 @@
     return password;
 
   };
+
+  function getRandom(text) {
+
+    return text[Math.floor(Math.random() * text.length)];
+
   }
 
 })();
