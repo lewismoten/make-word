@@ -5,7 +5,6 @@
   module.exports = (min, max) => {
 
     let password = '',
-      addConsonant = true,
       doubleConsonants = 'cdfglmnprst',
       singleConsonants = 'bcdfghjklmnprstv',
       letter = '',
