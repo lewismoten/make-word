@@ -2,9 +2,7 @@
 
   'use strict';
 
-  module.exports = RandomPassword;
-
-  function RandomPassword(Min, Max) {
+  module.exports = (Min, Max) => {
 
     let password = '',
       addConsonant = true,
