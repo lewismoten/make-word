@@ -9,9 +9,7 @@
 
   module.exports = (min, max) => {
 
-    let minimumLength = min || 8,
-      maximumLength = max || 8,
-      length = randomNumber(minimumLength, maximumLength),
+    let length = randomNumber(min || 8, max || 8),
       sb = new StringBuilder(),
       actions = [
         doubleConsonantAction,
