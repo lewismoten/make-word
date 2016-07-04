@@ -3,33 +3,6 @@
   'use strict';
 
   module.exports = RandomPassword;
-//**************************************
-//HTML for :Random Pronouncable Password
-//**************************************
-/*
-
-<SCRIPT src="RandomPassword.js"></SCRIPT>
-<SCRIPT>
-for(var i=0;i<25;i++)
-	document.write(RandomPassword(7,10) + '<BR>');
-</SCRIPT>
-*/
-
-//**************************************
-// Name: Random Pronouncable Password
-// Description:Allows client browser to randomly create a pronouncable password. This can be used to suggest a password to the user that is easy to remember.
-// By: Lewis Moten
-//
-//
-// Inputs:None
-//
-// Returns:None
-//
-//Assumes:None
-//
-//Side Effects:None
-//This code is copyrighted and has limited warranties.
-//**************************************
 
 function RandomPassword(Min, Max)
 {
