@@ -12,9 +12,12 @@
       vowels = 'aeiou',
       length = 0,
       index = 0,
-      random;
+      random,
+      minimumLength = Min || 8,
+      maximumLength = Max || 8
+      ;
 
-    length = Math.round(Math.random() * (Max - Min)) + Min;
+    length = Math.round(Math.random() * (maximumLength - minimumLength)) + minimumLength;
 
     while (password.length < length) {
 
@@ -49,9 +52,9 @@
 
     }
 
-    if (password.length > Max) {
+    if (password.length > maximumLength) {
 
-      password = password.substring(0, Max);
+      password = password.substring(0, maximumLength);
 
     }
 
