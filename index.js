@@ -13,8 +13,9 @@
       length = 0,
       random,
       minimumLength = min || 8,
-      maximumLength = max || 8
-      ;
+      maximumLength = max || 8,
+      addedVowel = false,
+      isFirstLetter = true;
 
     length = Math.round(Math.random() * (maximumLength - minimumLength)) + minimumLength;
 
@@ -23,26 +24,27 @@
       random = Math.round(Math.random() * 100);
 
       // 10% Double Consonants
-      if (password !== '' && addConsonant && random < 10) {
+      if (!isFirstLetter && addedVowel && random < 10) {
 
         letter = getRandom(doubleConsonants);
         password += letter + letter;
-        addConsonant = false;
+        addedVowel = false;
 
-      } else if (password !== '' && addConsonant && random < 90) {
+      } else if ((isFirstLetter || addedVowel) && random < 90) {
 
         // 80% Consonants
-
         password += getRandom(singleConsonants);
-        addConsonant = false;
+        addedVowel = false;
 
       } else {
 
         // 10% vowels
         password += getRandom(vowels);
-        addConsonant = true;
+        addedVowel = true;
 
       }
+
+      isFirstLetter = false;
 
     }
 
