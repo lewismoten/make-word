@@ -9,28 +9,27 @@
 
   module.exports = (min, max) => {
 
-    let random,
-      minimumLength = min || 8,
+    let minimumLength = min || 8,
       maximumLength = max || 8,
-      length = Math.round(Math.random() * (maximumLength - minimumLength)) + minimumLength,
-      addedVowel = false,
-      isFirstLetter = true,
-      sb = new StringBuilder();
+      length = randomNumber(minimumLength, maximumLength),
+      sb = new StringBuilder(),
+      actions = [
+        doubleConsonantAction,
+        consonantAction,
+        vowelAction
+      ];
 
-    let actions = [
-      doubleConsonantAction,
-      consonantAction,
-      vowelAction
-    ];
-
-    while(actions.some(action => action.do(sb, length))) {
-
-      // just doing...
-    }
+    while (actions.some(action => action.do(sb, length))){}
 
     return sb.toString();
 
   };
+
+  function randomNumber(min, max) {
+
+    return Math.round(Math.random() * (max - min)) + min;
+
+  }
 
 
 })();
