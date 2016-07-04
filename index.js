@@ -11,7 +11,6 @@
       letter = '',
       vowels = 'aeiou',
       length = 0,
-      index = 0,
       random,
       minimumLength = min || 8,
       maximumLength = max || 8
