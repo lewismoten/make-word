@@ -2,93 +2,35 @@
 
   'use strict';
 
-  class StringBuilder {
-
-    constructor() {
-
-      this.text = '';
-
-    }
-
-    toString() {
-
-      return this.text;
-
-    }
-
-    get length() {
-
-      return this.text.length;
-
-    }
-
-    addDoubleConsonant() {
-
-      let letter = getRandom('cdfglmnprst');
-      this.text += letter + letter;
-
-    }
-
-    addConsonant() {
-
-      this.text += getRandom('bcdfghjklmnprstv');
-
-    }
-
-    addVowel() {
-
-      this.text += getRandom('aeiou');
-
-    }
-
-  }
+  let StringBuilder = require('./lib/string-builder.js'),
+    consonantAction = require('./lib/consonant.js'),
+    doubleConsonantAction = require('./lib/double-consonant.js'),
+    vowelAction = require('./lib/vowel.js');
 
   module.exports = (min, max) => {
 
-    let length = 0,
-      random,
+    let random,
       minimumLength = min || 8,
       maximumLength = max || 8,
+      length = Math.round(Math.random() * (maximumLength - minimumLength)) + minimumLength,
       addedVowel = false,
       isFirstLetter = true,
       sb = new StringBuilder();
 
-    length = Math.round(Math.random() * (maximumLength - minimumLength)) + minimumLength;
+    let actions = [
+      doubleConsonantAction,
+      consonantAction,
+      vowelAction
+    ];
 
-    while (sb.length < length) {
+    while(actions.some(action => action.do(sb, length))) {
 
-      random = Math.round(Math.random() * 100);
-
-      // 10% Double Consonants
-      if (!isFirstLetter && addedVowel && random < 10 && sb.length < length - 2) {
-
-        sb.addDoubleConsonant();
-        addedVowel = false;
-
-      } else if ((isFirstLetter || addedVowel) && random < 90) {
-
-        sb.addConsonant();
-        addedVowel = false;
-
-      } else {
-
-        sb.addVowel();
-        addedVowel = true;
-
-      }
-
-      isFirstLetter = false;
-
+      // just doing...
     }
 
     return sb.toString();
 
   };
 
-  function getRandom(text) {
-
-    return text[Math.floor(Math.random() * text.length)];
-
-  }
 
 })();
