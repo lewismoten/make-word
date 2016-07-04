@@ -1,5 +1,5 @@
 let lib = require('./lib');
 
-for(let i = 0; i < 40; i++) {
-  console.log(lib(8, 8), lib(8, 8), lib(8, 8), lib(8, 8), lib(8, 8), lib(8, 8), lib(8, 8), lib(8, 8), lib(8, 8), lib(8, 8));
+for(let i = 0; i < 10; i++) {
+  console.log(`${i + 1}. ${lib(4, 7)}`);
 }
