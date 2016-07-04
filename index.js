@@ -6,14 +6,14 @@
 
   function RandomPassword(Min, Max) {
 
-    var password = new String(''),
-      addConsonant = new Boolean(true),
-      doubleConsonants = new String('cdfglmnprst'),
-      singleConsonants = new String('bcdfghjklmnprstv'),
-      letter = new String(''),
-      vowels = new String('aeiou'),
-      length = new Number(0),
-      index = new Number(0);
+    let password = '',
+      addConsonant = true,
+      doubleConsonants = 'cdfglmnprst',
+      singleConsonants = 'bcdfghjklmnprstv',
+      letter = '',
+      vowels = 'aeiou',
+      length = 0,
+      index = 0;
 
     length = Math.round(Math.random() * (Max - Min)) + Min;
 
