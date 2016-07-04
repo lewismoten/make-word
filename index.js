@@ -2,43 +2,77 @@
 
   'use strict';
 
+  class StringBuilder {
+
+    constructor() {
+
+      this.text = '';
+
+    }
+
+    toString() {
+
+      return this.text;
+
+    }
+
+    get length() {
+
+      return this.text.length;
+
+    }
+
+    addDoubleConsonant() {
+
+      let letter = getRandom('cdfglmnprst');
+      this.text += letter + letter;
+
+    }
+
+    addConsonant() {
+
+      this.text += getRandom('bcdfghjklmnprstv');
+
+    }
+
+    addVowel() {
+
+      this.text += getRandom('aeiou');
+
+    }
+
+  }
+
   module.exports = (min, max) => {
 
-    let password = '',
-      doubleConsonants = 'cdfglmnprst',
-      singleConsonants = 'bcdfghjklmnprstv',
-      letter = '',
-      vowels = 'aeiou',
-      length = 0,
+    let length = 0,
       random,
       minimumLength = min || 8,
       maximumLength = max || 8,
       addedVowel = false,
-      isFirstLetter = true;
+      isFirstLetter = true,
+      sb = new StringBuilder();
 
     length = Math.round(Math.random() * (maximumLength - minimumLength)) + minimumLength;
 
-    while (password.length < length) {
+    while (sb.length < length) {
 
       random = Math.round(Math.random() * 100);
 
       // 10% Double Consonants
-      if (!isFirstLetter && addedVowel && random < 10) {
+      if (!isFirstLetter && addedVowel && random < 10 && sb.length < length - 2) {
 
-        letter = getRandom(doubleConsonants);
-        password += letter + letter;
+        sb.addDoubleConsonant();
         addedVowel = false;
 
       } else if ((isFirstLetter || addedVowel) && random < 90) {
 
-        // 80% Consonants
-        password += getRandom(singleConsonants);
+        sb.addConsonant();
         addedVowel = false;
 
       } else {
 
-        // 10% vowels
-        password += getRandom(vowels);
+        sb.addVowel();
         addedVowel = true;
 
       }
@@ -47,13 +81,7 @@
 
     }
 
-    if (password.length > maximumLength) {
-
-      password = password.substring(0, maximumLength);
-
-    }
-
-    return password;
+    return sb.toString();
 
   };
 
