@@ -2,22 +2,25 @@
 
   'use strict';
 
-  let StringBuilder = require('./lib/string-builder.js'),
-    consonantAction = require('./lib/consonant.js'),
-    doubleConsonantAction = require('./lib/double-consonant.js'),
-    vowelAction = require('./lib/vowel.js');
+  let StringBuilder = require('./lib/string-builder.js');
 
   module.exports = (min, max) => {
 
     let length = randomNumber(min || 8, max || 8),
       sb = new StringBuilder(),
-      actions = [
-        doubleConsonantAction,
-        consonantAction,
-        vowelAction
-      ];
+      actions = require('./lib/actions');
 
-    while (actions.some(action => action.do(sb, length))){}
+    while (actions.some(action => action.canDo(sb, length))) {
+
+      // We can do an action
+
+      while(!actions.some(action => action.do(sb, length))) {
+
+        // we didn't do anything yet...
+
+      }
+
+    }
 
     return sb.toString();
 
