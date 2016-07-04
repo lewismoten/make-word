@@ -3,7 +3,7 @@
 
   'use strict';
 
-  let lib = require('../');
+  let lib = require('../lib');
 
   describe('lib', () => {
 
