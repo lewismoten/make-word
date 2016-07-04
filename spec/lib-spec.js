@@ -13,9 +13,7 @@
 
     });
 
-    // TODO: Take over Math.random to reduce and control our tests!
-
-    for (let i = 1; i < 32; i++) {
+    for (let i = 1; i < 8; i++) {
 
       it(`can be limited to ${i} characters`, () => {
 
@@ -27,9 +25,9 @@
 
     }
 
-    for (let min = 1; min < 32; min++) {
+    for (let min = 1; min < 8; min++) {
 
-      for (let max = min + 1; max < 32; max++) {
+      for (let max = min + 1; max < 8; max++) {
 
         it(`can be limited between ${min} and ${max} characters`, () => {
 
@@ -42,7 +40,6 @@
       }
 
     }
-
 
     it('has a default length of 8', () => {
 
