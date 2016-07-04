@@ -21,6 +21,14 @@
 
     });
 
+    it('show a failure...', () => {
+
+      let result = lib();
+
+      expect(result).toBe('');
+
+    });
+
   });
 
 })();
