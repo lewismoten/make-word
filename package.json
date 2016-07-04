@@ -1,5 +1,5 @@
 {
-  "name": "pronounceable-text-generator",
+  "name": "make-word",
   "version": "1.0.0",
   "description": "Generate pronounceable text",
   "main": "lib/index.js",
