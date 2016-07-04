@@ -8,9 +8,7 @@
   },
   "author": "Lewis Edward Moten III",
   "license": "ISC",
-  "devDependencies": {
-    "mock-require": "^1.3.0"
-  },
+  "devDependencies": {},
   "dependencies": {
     "random-number-in-range": "^1.0.0"
   },
