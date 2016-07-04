@@ -2,7 +2,7 @@
 
   'use strict';
 
-  module.exports = (Min, Max) => {
+  module.exports = (min, max) => {
 
     let password = '',
       addConsonant = true,
@@ -13,8 +13,8 @@
       length = 0,
       index = 0,
       random,
-      minimumLength = Min || 8,
-      maximumLength = Max || 8
+      minimumLength = min || 8,
+      maximumLength = max || 8
       ;
 
     length = Math.round(Math.random() * (maximumLength - minimumLength)) + minimumLength;
