@@ -1,3 +1,5 @@
+![make-word: Pronounceable made-up words](docs/images/social-preview.png)
+
 # Make Word
 
 Generates pronounceable text in English.
